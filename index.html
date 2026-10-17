@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNAPZONE - List Fotografer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#f59e0b',
+                            goldLight: '#fbbf24',
+                            dark: '#0f172a',
+                            darker: '#020617',
+                            card: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+        }
+        .question-img {
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+        }
+        .sketch-box {
+            border: 2px solid #334155;
+            transition: all 0.3s ease;
+        }
+        .sketch-box:hover {
+            border-color: #f59e0b;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-gold selection:text-black">
+
+    <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <!-- SNAPZONE Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <img src="SNAPZONE-removebg-preview.png" alt="Logo" class="h-10 w-auto object-contain">
+            </a>
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="text-brand-gold font-semibold hover:text-white transition-colors">SNAPZONE AGENCY</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="flex items-center space-x-3">
+                <button class="bg-brand-gold hover:bg-brand-goldLight text-black font-bold px-5 py-2.5 rounded-xl shadow-lg transition-all transform active:scale-95 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>SNAPZONE</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Section Header Title -->
+        <div class="text-center mb-10">
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-wide uppercase mb-3 drop-shadow-md">
+                LIST FOTOGRAFER
+            </h1>
+            <div class="w-24 h-1.5 bg-brand-gold mx-auto rounded-full mb-6"></div>
+            <p class="text-slate-400 max-w-md mx-auto text-sm sm:text-base">
+                Beberapa fotografer profesional yang bisa Anda pilih
+            </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+            <button class="px-5 py-2 rounded-xl text-sm font-semibold bg-brand-gold text-black shadow-md border border-brand-gold transition-all">
+                Semua Fotografer
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1 (BIMO) -->
+            <div class="sketch-box bg-slate-900 rounded-2xl overflow-hidden flex flex-col p-4 shadow-xl">
+                <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 border border-slate-800 group relative bg-black">
+                    <img src="bimo fiks.jpeg" alt="BIMO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="bg-brand-gold text-black font-bold text-xs px-4 py-2 rounded-lg">PRO FOTOGRAFER</span>
+                    </div>
+                </div>
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">nama:</span>
+                            <span class="font-bold text-white text-base">BIMO</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">spesialis:</span>
+                            <span class="font-semibold text-brand-gold text-sm">ALL IN</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">harga:</span>
+                            <span class="font-semibold text-emerald-400 text-sm">Rp. 475.000</span>
+                        </div>
+                    </div>
+                    <!-- Panggil openModal(1) untuk BIMO -->
+                    <button onclick="openModal(1)" class="w-full mt-4 py-2.5 bg-slate-800 hover:bg-brand-gold hover:text-black text-slate-200 font-bold rounded-xl transition-all duration-200 text-sm border border-slate-700 hover:border-brand-gold flex items-center justify-center gap-2">
+                        <span>For More</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2 (DOMO) -->
+            <div class="sketch-box bg-slate-900 rounded-2xl overflow-hidden flex flex-col p-4 shadow-xl">
+                <div class="question-img w-full aspect-square rounded-xl overflow-hidden mb-4 border border-slate-800 group relative">
+                    <img src="domo.jpg" alt="DOMO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="bg-brand-gold text-black font-bold text-xs px-4 py-2 rounded-lg">FOTOGRAFER</span>
+                    </div>
+                </div>
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">nama:</span>
+                            <span class="font-bold text-white text-base">DOMO</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">spesialis:</span>
+                            <span class="font-semibold text-brand-gold text-sm">ALL IN</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">harga:</span>
+                            <span class="font-semibold text-emerald-400 text-sm">Rp. 300.000</span>
+                        </div>
+                    </div>
+                    <!-- Panggil openModal(2) untuk DOMO -->
+                    <button onclick="openModal(2)" class="w-full mt-4 py-2.5 bg-slate-800 hover:bg-brand-gold hover:text-black text-slate-200 font-bold rounded-xl transition-all duration-200 text-sm border border-slate-700 hover:border-brand-gold flex items-center justify-center gap-2">
+                        <span>For More</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="sketch-box bg-slate-900 rounded-2xl overflow-hidden flex flex-col p-4 shadow-xl">
+                <div class="question-img w-full aspect-square rounded-xl overflow-hidden mb-4 border border-slate-800 group relative">
+                    <span class="text-8xl font-black text-white selection:bg-none">?</span>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="bg-brand-gold text-black font-bold text-xs px-4 py-2 rounded-lg">?????</span>
+                    </div>
+                </div>
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">nama:</span>
+                            <span class="font-bold text-white text-base">??????</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">spesialis:</span>
+                            <span class="font-semibold text-brand-gold text-sm">??????</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">harga:</span>
+                            <span class="font-semibold text-emerald-400 text-sm">Rp. ?????</span>
+                        </div>
+                    </div>
+                    <button onclick="openModal(3)" class="w-full mt-4 py-2.5 bg-slate-800 hover:bg-brand-gold hover:text-black text-slate-200 font-bold rounded-xl transition-all duration-200 text-sm border border-slate-700 hover:border-brand-gold flex items-center justify-center gap-2">
+                        <span>For More</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="sketch-box bg-slate-900 rounded-2xl overflow-hidden flex flex-col p-4 shadow-xl">
+                <div class="question-img w-full aspect-square rounded-xl overflow-hidden mb-4 border border-slate-800 group relative">
+                    <span class="text-8xl font-black text-white selection:bg-none">?</span>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="bg-brand-gold text-black font-bold text-xs px-4 py-2 rounded-lg">?????</span>
+                    </div>
+                </div>
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">nama:</span>
+                            <span class="font-bold text-white text-base">?????</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">spesialis:</span>
+                            <span class="font-semibold text-brand-gold text-sm">?????</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">harga:</span>
+                            <span class="font-semibold text-emerald-400 text-sm">Rp. ??????</span>
+                        </div>
+                    </div>
+                    <button onclick="openModal(4)" class="w-full mt-4 py-2.5 bg-slate-800 hover:bg-brand-gold hover:text-black text-slate-200 font-bold rounded-xl transition-all duration-200 text-sm border border-slate-700 hover:border-brand-gold flex items-center justify-center gap-2">
+                        <span>For More</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="sketch-box bg-slate-900 rounded-2xl overflow-hidden flex flex-col p-4 shadow-xl">
+                <div class="question-img w-full aspect-square rounded-xl overflow-hidden mb-4 border border-slate-800 group relative">
+                    <span class="text-8xl font-black text-white selection:bg-none">?</span>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="bg-brand-gold text-black font-bold text-xs px-4 py-2 rounded-lg">?????</span>
+                    </div>
+                </div>
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">nama:</span>
+                            <span class="font-bold text-white text-base">FOTOGRAFER 5</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">spesialis:</span>
+                            <span class="font-semibold text-brand-gold text-sm">??????</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">harga:</span>
+                            <span class="font-semibold text-emerald-400 text-sm">Rp. ?????</span>
+                        </div>
+                    </div>
+                    <button onclick="openModal(5)" class="w-full mt-4 py-2.5 bg-slate-800 hover:bg-brand-gold hover:text-black text-slate-200 font-bold rounded-xl transition-all duration-200 text-sm border border-slate-700 hover:border-brand-gold flex items-center justify-center gap-2">
+                        <span>For More</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="sketch-box bg-slate-900 rounded-2xl overflow-hidden flex flex-col p-4 shadow-xl">
+                <div class="question-img w-full aspect-square rounded-xl overflow-hidden mb-4 border border-slate-800 group relative">
+                    <span class="text-8xl font-black text-white selection:bg-none">?</span>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="bg-brand-gold text-black font-bold text-xs px-4 py-2 rounded-lg">?????</span>
+                    </div>
+                </div>
+                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">nama:</span>
+                            <span class="font-bold text-white text-base">FOTOGRAFER 6</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">spesialis:</span>
+                            <span class="font-semibold text-brand-gold text-sm">?????</span>
+                        </div>
+                        <div class="flex items-center text-slate-300">
+                            <span class="font-medium text-slate-400 w-20 inline-block text-sm">harga:</span>
+                            <span class="font-semibold text-emerald-400 text-sm">Rp. ?????</span>
+                        </div>
+                    </div>
+                    <button onclick="openModal(6)" class="w-full mt-4 py-2.5 bg-slate-800 hover:bg-brand-gold hover:text-black text-slate-200 font-bold rounded-xl transition-all duration-200 text-sm border border-slate-700 hover:border-brand-gold flex items-center justify-center gap-2">
+                        <span>For More</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="detailModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 relative shadow-2xl animate-fade-in">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <!-- Dynamic Modal Content Header -->
+            <div class="text-center mb-6">
+                <div id="modalImageContainer" class="w-24 h-24 rounded-2xl mx-auto mb-4 border border-slate-700 overflow-hidden flex items-center justify-center bg-black">
+                    <!-- Image or Dynamic Placeholder will be placed here -->
+                </div>
+                <h3 id="modalName" class="text-xl font-bold text-white">nama: -</h3>
+                <p id="modalSpecialty" class="text-brand-gold text-sm">spesialis: -</p>
+            </div>
+
+            <!-- Dynamic Modal Content Details -->
+            <div class="space-y-3 bg-slate-950/60 p-4 rounded-xl mb-6 text-sm">
+                <div class="flex justify-between border-b border-slate-800 pb-2">
+                    <span class="text-slate-400">harga:</span>
+                    <span id="modalPrice" class="font-semibold text-emerald-400">-</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-800 pb-2">
+                    <span class="text-slate-400">lokasi:</span>
+                    <span id="modalLocation" class="font-semibold text-slate-200">-</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-800 pb-2">
+                    <span class="text-slate-400">pengalaman:</span>
+                    <span id="modalExperience" class="font-semibold text-slate-200">-</span>
+                </div>
+                 <div class="flex justify-between">
+                    <span class="text-slate-400">kamera / alat:</span>
+                    <span id="modalGear" class="font-semibold text-brand-goldLight text-right">-</span>
+                </div>
+            </div>
+
+            <!-- Contact Link Button -->
+            <a id="modalWhatsAppBtn" href="#" target="_blank" class="w-full bg-brand-gold hover:bg-brand-goldLight text-black font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-center">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Hubungi Admin dengan nama ini</span>
+            </a>
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 border-t border-slate-800 mt-20 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-3">
+                <span class="text-lg font-bold tracking-wider text-white">
+                    SNAP<span class="text-brand-gold">ZONE</span>
+                </span>
+                <span class="text-xs text-slate-500">AGENCY</span>
+            </div>
+            <p class="text-slate-500 text-xs mb-4">
+                FOR YOUR MEMORY TO FRAME AGENCY
+            </p>
+            <p class="text-slate-600 text-xs">
+                &copy; 2026 SNAPZONE Agency. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        /* 
+           =========================================================
+           EDIT DATA FOTOGRAFER DI SINI (bebas ubah/tambah sesuai kebutuhan)
+           =========================================================
+        */
+        const photographersData = {
+            1: {
+                nama: "BIMO",
+                spesialis: "ALL IN (Videografi & Fotografi)",
+                harga: "Rp. 475.000",
+                lokasi: "Magelang",
+                pengalaman: "4 Tahun",
+                gear: "Sony Alpha a6400",
+                foto: "bimo fiks.jpeg"
+            },
+            2: {
+                nama: "DOMO",
+                spesialis: "ALL IN (Cinematic,Fotografer & Gimbal Operator)",
+                harga: "Rp. 300.000",
+                lokasi: "Magelang",
+                pengalaman: "3 Tahun",
+                gear: "",
+                foto: "domo.jpg"
+            },
+            3: {
+                nama: "Rian Photography",
+                spesialis: "Portrait & Model",
+                harga: "Rp. 350.000",
+                lokasi: "Bandung",
+                pengalaman: "4 Tahun",
+                gear: "Canon EOS R6 + 85mm f/1.4",
+                foto: null // Jika null, akan tampil tanda tanya "?"
+            },
+            4: {
+                nama: "Maya Studio",
+                spesialis: "Event & Konser",
+                harga: "Rp. 400.000",
+                lokasi: "Jakarta Selatan",
+                pengalaman: "5 Tahun",
+                gear: "Nikon Z6 II + 24-70mm f/2.8",
+                foto: null
+            },
+            5: {
+                nama: "Kiki Wedding",
+                spesialis: "Wedding & Prewedding",
+                harga: "Rp. 500.000",
+                lokasi: "Surabaya",
+                pengalaman: "6 Tahun",
+                gear: "Sony A7IV Dual Slot",
+                foto: null
+            },
+            6: {
+                nama: "Eko Product",
+                spesialis: "Foto Produk & Catalog",
+                harga: "Rp. 250.000",
+                lokasi: "Semarang",
+                pengalaman: "2 Tahun",
+                gear: "Fujifilm X-T4 + Lighting Studio",
+                foto: null
+            }
+        };
+
+
+        // Nomor Whatsapp Admin (Ganti angka ini dengan nomor WA Admin kamu)
+        const adminWhatsAppNumber = "+6285759226859";
+
+        // Fungsi Membuka Modal berdasarkan ID Card
+        function openModal(id) {
+            const data = photographersData[id];
+            
+            if (!data) return;
+
+            // Update teks modal
+            document.getElementById('modalName').innerText = "nama: " + data.nama;
+            document.getElementById('modalSpecialty').innerText = "spesialis: " + data.spesialis;
+            document.getElementById('modalPrice').innerText = data.harga;
+            document.getElementById('modalLocation').innerText = data.lokasi;
+            document.getElementById('modalExperience').innerText = data.pengalaman;
+            document.getElementById('modalGear').innerText = data.gear;
+
+            // Update gambar modal
+            const imgContainer = document.getElementById('modalImageContainer');
+            if (data.foto) {
+                imgContainer.innerHTML = `<img src="${data.foto}" alt="${data.nama}" class="w-full h-full object-cover">`;
+            } else {
+                imgContainer.innerHTML = `<span class="text-5xl font-black text-white">?</span>`;
+            }
+
+            // Link WhatsApp Otomatis dengan nama Fotografer
+            const message = encodeURIComponent(`Halo Admin SNAPZONE, saya ingin memesan jasa fotografer *${data.nama}* (Spesialis: ${data.spesialis}). Mohon info jadwal ketersediaannya.`);
+            document.getElementById('modalWhatsAppBtn').href = `https://wa.me/${adminWhatsAppNumber}?text=${message}`;
+
+            // Tampilkan Modal
+            const modal = document.getElementById('detailModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // Fungsi Menutup Modal
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
